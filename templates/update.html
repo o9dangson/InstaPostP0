@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<!-- Title -->
+{% block head %}
+<title>Update Page</title>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+<tr>
+    <div class="form">
+        <form action="/post/update" method="POST">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" value={{username}} readonly>
+            <br>
+            <label for="post_id">Post_id</label>
+            <input type="text" name="post_id" id="post_id" value={{post_obj.post_id}} readonly>
+            <br>
+            <label for="post_date">Date</label>
+            <input type="text" name="post_date" id="post_date" value={{post_obj.post_date}} readonly>
+            <br>
+            <label for="title">Title</label>
+            <input type="text" name="title" id="title" value={{post_obj.post_title}}>
+            <br>
+            <label for="desc">Description</label>
+            <input type="text" name="desc" id="desc" value={{post_obj.post_desc}}>
+            <br>
+            <br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</tr>
+{% endblock %}

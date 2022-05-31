@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+<!-- Title -->
+{% block head %}
+<title>Account Page</title>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+<div>
+    <tr>
+        <td>Welcome, {{username}}!</td>
+    </tr>
+</div>
+<div>
+    <tr>
+        <td>
+            <form action="/" method="GET">
+                <input type="submit" value="Log Out">
+            </form>
+        </td>
+        <td>
+            <form action="/register/user" method="GET">
+                <input type="submit" value="Add Account">
+            </form>
+        </td>
+        <td>
+            <form action="/account/close/{{username}}" method="GET">
+                <input type="submit" value="Close Accounts">
+            </form>
+        </td>
+    </tr>
+</div>
+{% for login_name in list %}
+<div>
+    <tr>
+        <td>{{login_name}}</td>
+        <td><a href="/account/{{login_name}}/posts">Select User</a></td>
+        <td><a href="/account/delete/{{login_name}}">Delete</a></td>
+    </tr>
+</div>
+{% endfor %}
+{% endblock %}

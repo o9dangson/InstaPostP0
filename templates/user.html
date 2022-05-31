@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+<!-- Title -->
+{% block head %}
+<title>User Page</title>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+<div class="leftcolumn">
+    <tr>
+        <td>
+            <form action="/post/{{username}}/add" method="POST">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                <br>
+                <label for="desc">Description</label>
+                <input type="text" name="desc" id="desc">
+                <br>
+                <br>
+                <input type="submit" value="Add Post">
+            </form>
+        </td>
+    </tr>
+</div>
+{% for post in list %}
+<div class="leftcolumn">
+    <tr>
+        <td>{{post.post_date}}</td>
+        <td>{{post.post_title}}</td>
+        <td>{{post.post_desc}}</td>
+        <td><a href="/post/{{username}}/update/{{post.post_id}}">Update</a></td>
+        <td><a href="/post/{{username}}/delete/{{post.post_id}}">Delete</a></td>
+    </tr>
+</div>
+{% endfor %}
+<div class="rightcolumn">
+    <tr>
+        <td>Welcome, {{username}}!</td>
+    </tr>
+</div>
+<div class="rightcolumn">
+    <tr>
+        <td>
+            <form action="/" method="GET">
+                <input type="submit" value="Log Out">
+            </form>
+        </td>
+        <td>
+            <form action="/account/{{super_user}}" method="GET">
+                <input type="submit" value="Account Page">
+            </form>
+        </td>
+    </tr>
+</div>
+{% endblock %}
