@@ -44,3 +44,7 @@ After cloning the repo, there are a few extra steps that need to be done in orde
 ## Running the Code
 
 -   `python app.py`
+
+## Trello Board
+User Stories, and Sprint Outline
+https://trello.com/b/aez6STia/kanban-p0
